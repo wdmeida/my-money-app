@@ -70,7 +70,7 @@ const signup = (req, res, next) => {
     } else if (user) {
       return status(400).send({ errors: ['Usuário já cadastrado.'] })
     } else {
-      const newUser = newUser({ name, email, password: passwordHash })
+      const newUser = new User({ name, email, password: passwordHash })
 
       newUser.save(err => {
         if (err) {
